@@ -7,6 +7,7 @@ public class ObjDND : MonoBehaviour
     bool isDragging;
     Vector2 startPos;
     public Sprite small, big;
+    public int objCode;
 
     // Start is called before the first frame update
     void Start()

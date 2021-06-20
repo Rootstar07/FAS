@@ -7,6 +7,9 @@ TagManager:
   - Postit
   - PostitBorder
   - SmallTab
+  - special
+  - desk
+  - plusHere
   layers:
   - Default
   - TransparentFX
