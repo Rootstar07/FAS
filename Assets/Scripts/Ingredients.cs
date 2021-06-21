@@ -19,12 +19,42 @@ public class Ingredients : MonoBehaviour
 
     public int speicalAvilable;
     public int nowSpecialCode;
+    public TMP_Text specialText;
+    public string[] specialList;
+
+    public Slider TD;
+    public float TDValue;
+
+    public GameObject specialCancelButton;
+    public GameObject makeButton;
+    public GameObject noTouchPanel;
 
     int sugarcode = 0;
     int smellcode = 0;
 
+    GameObject temp_special;
+
     [TextArea]
     public string[] ingredientData;
+
+    private void Start()
+    {
+        noTouchPanel.SetActive(false);
+    }
+
+    private void Update()
+    {
+        TDValue = TD.value;
+
+        if ((ingredNums[0] != 0 || ingredNums[1] != 0 || ingredNums[2] != 0) && (ingredNums[3] != 0 || ingredNums[4] != 0 || ingredNums[5] != 0))
+        {
+            makeButton.SetActive(true);
+        }else
+        {
+            makeButton.SetActive(false);
+        }
+    }
+
 
     public void Click(int code)
     {
@@ -82,9 +112,57 @@ public class Ingredients : MonoBehaviour
 
     }
 
-    public void GetSpeicalIngredient(int x)
+    public void GetSpeicalIngredient(int x, GameObject y)
     {
         nowSpecialCode = x;
+        temp_special = y;
+
+        specialText.text = specialList[x];
+        y.SetActive(false);
+        specialCancelButton.SetActive(true);
+
+        //취소기능
     }
 
+    public void CanelSpecial()
+    {
+        temp_special.SetActive(true);
+        specialCancelButton.SetActive(false);
+
+        nowSpecialCode = 0;
+        specialText.text = specialList[0];
+    }
+
+    public void LetsMake()
+    {
+        //코드 생성
+        string code = "";
+
+        int _TD = 0;
+
+        foreach (int x in ingredNums)
+        {
+            code = code + x.ToString();
+        }
+
+        if (TDValue < 0.4)
+            _TD = 0;
+        else if (TDValue < 0.8)
+            _TD = 1;
+        else
+            _TD = 2;
+
+        code = code + _TD.ToString() + sugarcode.ToString() + smellcode.ToString() + nowSpecialCode.ToString();
+
+        Debug.Log(code);
+
+        noTouchPanel.SetActive(true);
+        makeButton.SetActive(false);
+
+    }
+
+
+    //TOdo
+    //제작완성
+    //버튼 누를때 애니메이션
 }

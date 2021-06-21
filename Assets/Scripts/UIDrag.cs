@@ -10,16 +10,17 @@ public class UIDrag : MonoBehaviour
     public Sprite small, big;
     public int smallSize;
     public int BigSize;
-    public GameObject rightCol;
-    public GameObject deskCol;
-    public GameObject plusCol;
+
     public Ingredients ingredients;
     public int thisSpeicalCode;
+
+    public MovableManager movableManager;
 
     // Start is called before the first frame update
     void Start()
     {
         startPos = transform.position;
+        Cursor.SetCursor(movableManager.normalCursor, Vector2.zero, CursorMode.ForceSoftware);
     }
 
     // Update is called once per frame
@@ -45,9 +46,10 @@ public class UIDrag : MonoBehaviour
 
     void UpdateCol(bool x)
     {
-        plusCol.SetActive(!x);
-        deskCol.SetActive(!x);
-        rightCol.SetActive(!x);
+        movableManager.plusCol.SetActive(!x);
+        //plusCol.SetActive(!x);
+        movableManager.deskCol.SetActive(!x);
+        movableManager.rightCol.SetActive(!x);
 
     }
 
@@ -61,18 +63,27 @@ public class UIDrag : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D other)
     {
+        //커서관리
+        if (other.gameObject.tag == "cursorChecker")
+        {
+            Debug.Log("진입 성공");
+            if (ingredients.speicalAvilable == thisSpeicalCode)
+
+            Cursor.SetCursor(movableManager.yesCursor, Vector2.zero, CursorMode.ForceSoftware);
+
+            else if (ingredients.speicalAvilable != thisSpeicalCode)
+            {
+                Cursor.SetCursor(movableManager.noCursor, Vector2.zero, CursorMode.ForceSoftware);
+            }
+        }
+      
+        //작동관리
         if (other.gameObject.tag == "plusHere")
         {
             if (ingredients.speicalAvilable == thisSpeicalCode)
             {
-                ingredients.GetSpeicalIngredient(thisSpeicalCode);
-                Destroy(gameObject); //내려놨을때, 첨가물 영역이면 결정하기
-
-                //Todo
-                //가능한 코드면 가능하다고 표시
-                //불가능한 코드면 안된다고 피드백
+                ingredients.GetSpeicalIngredient(thisSpeicalCode, gameObject);
             }
-
         }
         else if (other.gameObject.tag == "PostitBorder")
         {
@@ -90,5 +101,8 @@ public class UIDrag : MonoBehaviour
     {
          if (collision.gameObject.tag == "SmallTab")
             gameObject.GetComponent<Image>().sprite = big;
+
+        if (collision.gameObject.tag == "cursorChecker")
+            Cursor.SetCursor(movableManager.normalCursor, Vector2.zero, CursorMode.ForceSoftware);
     }
 }
