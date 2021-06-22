@@ -28,6 +28,7 @@ public class Ingredients : MonoBehaviour
     public GameObject specialCancelButton;
     public GameObject makeButton;
     public GameObject noTouchPanel;
+    public Animator CompleteAnimator;
 
     int sugarcode = 0;
     int smellcode = 0;
@@ -76,6 +77,8 @@ public class Ingredients : MonoBehaviour
             ingredients[code].transform.GetChild(2).gameObject.SetActive(false);
             ingredNums[code] = 0;
         }
+
+
 
         //ingredNums[code]++;
     }
@@ -156,8 +159,19 @@ public class Ingredients : MonoBehaviour
 
         Debug.Log(code);
 
-        noTouchPanel.SetActive(true);
-        makeButton.SetActive(false);
+        CompleteAnimator.SetBool("PanelOff", false);
+        CompleteAnimator.SetBool("PanelOn", true);
+
+    }
+
+    public void MakeCanelButtonPressed()
+    {
+        CompleteAnimator.SetBool("PanelOff", true);
+        CompleteAnimator.SetBool("PanelOn", false);
+    }
+
+    public void MakeConfirmButtonPressed()
+    {
 
     }
 

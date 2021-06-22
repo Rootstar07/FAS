@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: -6461464131279477050}
   - component: {fileID: -6054373971726421252}
   - component: {fileID: 973595422965577821}
+  - component: {fileID: 1003280513577118074}
   m_Layer: 5
   m_Name: "\uC7AC\uB8CC"
   m_TagString: Untagged
@@ -125,15 +126,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: Click
-        m_Mode: 3
+      - m_Target: {fileID: 1003280513577118074}
+        m_MethodName: Play
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Ingredients_Pressed
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &-6461464131279477050
@@ -148,8 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84b059ed13a7cab4fb5a441397c423ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ingredientData: 
-  targetText: {fileID: 0}
+  ingredientString: 
 --- !u!61 &-6054373971726421252
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -197,6 +197,25 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!95 &1003280513577118074
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2898303142223849293}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b65140339701a27428e468e392916d61, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2898303142474429641
 GameObject:
   m_ObjectHideFlags: 0
