@@ -11,6 +11,7 @@ TagManager:
   - desk
   - plusHere
   - cursorChecker
+  - CoinChecker
   layers:
   - Default
   - TransparentFX

@@ -10,6 +10,10 @@ public class UIDrag : MonoBehaviour
     public Sprite small, big;
     public int smallSize;
     public int BigSize;
+    public GameManager GM;
+
+    public bool isCoin;
+    public int howCoin;
 
     public Ingredients ingredients;
     public int thisSpeicalCode;
@@ -58,6 +62,17 @@ public class UIDrag : MonoBehaviour
         if (collision.gameObject.tag == "SmallTab")
         {
             gameObject.GetComponent<Image>().sprite = small;
+        }
+
+        //코인 제어
+        if (collision.gameObject.tag == "CoinChecker")
+        {
+            if (isCoin == true)
+            {
+                GM.CoinEnter(howCoin);
+                Debug.Log("성공");
+                gameObject.SetActive(false);
+            }
         }
     }
 
