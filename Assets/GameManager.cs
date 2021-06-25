@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
 
     public float Gold = 0;
     public TMP_Text goldText;
+    public GameObject wallet;
 
     void Update()
     {
@@ -47,9 +48,11 @@ public class GameManager : MonoBehaviour
 
     }
 
-    public void CoinEnter(int money)
+    public void CoinEnter(ForCoin x)
     {
-        Gold = Gold + money;
+        Gold = Gold + x.gold;
         goldText.text = Gold.ToString();
+        iTween.MoveBy(x.gameObject, wallet.transform.position, 1f);
+
     }
 }

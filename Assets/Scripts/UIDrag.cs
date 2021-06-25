@@ -10,7 +10,7 @@ public enum ObjKinds { Coin, Postit, SecretPosit, SpeicalObj };
 public class UIDrag : MonoBehaviour
 {
     bool startDrag;
-    Vector2 startPos;
+    public Vector2 startPos;
     public Sprite small, big;
     public int smallSize;
     public int BigSize;
@@ -49,6 +49,8 @@ public class UIDrag : MonoBehaviour
     {
         startDrag = true;
         UpdateCol(startDrag);
+        gameObject.transform.SetAsLastSibling();
+        
     }
 
     public void StopDragUIButPosOk()
@@ -75,6 +77,7 @@ public class UIDrag : MonoBehaviour
             //gameObject.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, smallSize);
             //gameObject.transform.GetChild(0).gameObject.SetActive(false);
         }
+
 
 
     }
@@ -118,6 +121,11 @@ public class UIDrag : MonoBehaviour
 
     }
 
+    public void FixBugwhenCanelButton()
+    {
+        startPos = new Vector2(0, 0);
+    }
+
     private void OnTriggerExit2D(Collider2D collision)
     {
          if (collision.gameObject.tag == "SmallTab")
@@ -134,12 +142,12 @@ public class UIDrag : MonoBehaviour
             //----------------------------------------------------//
             //코인 제어 todo:클릭해서 그냥 넣기
             //----------------------------------------------------//
-            if ((int)kind == 0)
-            {
-                GM.CoinEnter(howCoin);
-                Debug.Log("성공");
-                gameObject.SetActive(false);
-            }
+            //if ((int)kind == 0)
+            //{
+            //    GM.CoinEnter(howCoin);
+            //    Debug.Log("성공");
+            //    gameObject.SetActive(false);
+            //}
         }
 
 

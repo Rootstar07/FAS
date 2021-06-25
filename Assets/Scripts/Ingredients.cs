@@ -119,6 +119,7 @@ public class Ingredients : MonoBehaviour
     {
         nowSpecialCode = x;
         temp_special = y;
+        temp_special.GetComponent<UIDrag>().startPos = new Vector2(-2, -3);
 
         specialText.text = specialList[x];
         y.SetActive(false);
