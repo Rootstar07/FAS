@@ -36,7 +36,12 @@ public class UIDrag : MonoBehaviour
     {
         if (startDrag)
         {
-            transform.position = Input.mousePosition;
+            Vector3 mousePosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0);
+            Vector3 objPosition = Camera.main.ScreenToWorldPoint(mousePosition);
+            objPosition.z = 0;
+            transform.position = objPosition;
+
+            //transform.position = Input.mousePosition;
         }
     }
 
