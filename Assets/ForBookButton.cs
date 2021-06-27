@@ -1,21 +1,56 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ForBookButton : MonoBehaviour
 {
     public GameObject speciesTab;
-    public GameObject links;
     public GameObject targetPages;
+    public int linkNum = 2;
     GameObject nowOpenPage = null;
+    public int nowPageCode = 0;
+    public GameObject pageText;
+    public GameObject pageNextButton;
 
     public void smallButtonClick(int n)
     {
         if (nowOpenPage != null)
             nowOpenPage.SetActive(false); //기존 페이지 비활성화
 
-        nowOpenPage = targetPages.transform.GetChild(n).gameObject; //새로운 페이지 생성
+        nowPageCode = n;
+        nowOpenPage = targetPages.transform.GetChild(nowPageCode).gameObject; //새로운 페이지 생성
         nowOpenPage.SetActive(true); //새로운 페이지 활성화
+
+        pageText.SetActive(true);
+        pageNextButton.SetActive(true);
+        PageUpdate();
+
+    }
+
+    private void Start()
+    {
+        PageUpdate();
+    }
+
+    public void PageUpdate()
+    {
+        pageText.transform.GetChild(2).GetComponent<Text>().text = linkNum.ToString();
+        pageText.transform.GetChild(0).GetComponent<Text>().text = (nowPageCode+1).ToString();
+    }
+
+    public void smallButtonNextClick(int n)
+    {
+        if (n==1 && nowPageCode > linkNum - 2)
+            smallButtonClick(0);
+
+        else if (n == -1 && nowPageCode + n < 0)
+            smallButtonClick(linkNum - 1);
+
+        else
+            smallButtonClick(nowPageCode + n);
+
+        PageUpdate();
 
     }
 
@@ -33,6 +68,9 @@ public class ForBookButton : MonoBehaviour
         {
             speciesTab.SetActive(true); //종족 페이지 활성화
         }
+
+        pageText.SetActive(false);
+        pageNextButton.SetActive(false);
     }
 
 }

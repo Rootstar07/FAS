@@ -11,9 +11,8 @@ public class UIDrag : MonoBehaviour
 {
     bool startDrag;
     public Vector2 startPos;
-    public Sprite small, big;
-    public int smallSize;
-    public int BigSize;
+
+    public ForPosit forPosit;
     public GameManager GM;
 
     public ObjKinds kind;
@@ -68,6 +67,21 @@ public class UIDrag : MonoBehaviour
 
     }
 
+    public void ReversePostit()
+    {
+        if (forPosit.reversed == false)
+        {
+            gameObject.GetComponent<Image>().sprite = forPosit.Reverse;
+            gameObject.transform.GetChild(0).gameObject.GetComponent<Text>().text = forPosit.R_text;
+        }
+        else
+        {
+            gameObject.GetComponent<Image>().sprite = forPosit.big;
+            gameObject.transform.GetChild(0).gameObject.GetComponent<Text>().text = forPosit.N_text;
+        }
+        forPosit.reversed = !forPosit.reversed;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "SmallTab")
@@ -77,9 +91,6 @@ public class UIDrag : MonoBehaviour
             //gameObject.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, smallSize);
             //gameObject.transform.GetChild(0).gameObject.SetActive(false);
         }
-
-
-
     }
 
     private void OnTriggerStay2D(Collider2D other)
@@ -130,14 +141,23 @@ public class UIDrag : MonoBehaviour
     {
          if (collision.gameObject.tag == "SmallTab")
         {
-            gameObject.GetComponent<Image>().sprite = big; //큰 스프라이트로 변경
-            gameObject.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, BigSize);
-            gameObject.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, BigSize);
-            gameObject.GetComponent<BoxCollider2D>().size = new Vector2(250, 250);
+            if ((int)kind == 3)
+            {
 
+            }
 
-            if ((int)kind == 1 || (int)kind == 2)
+            //포스트잇일때 변화
+            if ((int)kind == 1)
+            {
+                gameObject.GetComponent<Image>().sprite = forPosit.big; //큰 스프라이트로 변경
+                gameObject.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, forPosit.BigSize);
+                gameObject.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, forPosit.BigSize);
+                gameObject.GetComponent<BoxCollider2D>().size = new Vector2(250, 250);
                 gameObject.transform.GetChild(0).gameObject.SetActive(true);
+                gameObject.transform.GetChild(0).gameObject.GetComponent<Text>().text = forPosit.N_text;
+                forPosit.reverseButton.SetActive(true);
+            }
+                
 
             //----------------------------------------------------//
             //코인 제어 todo:클릭해서 그냥 넣기
