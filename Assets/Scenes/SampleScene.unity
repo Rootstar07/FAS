@@ -650,9 +650,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 63960270}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.35, y: 0.02, z: 655.43835}
+  m_LocalPosition: {x: 3, y: 0.02, z: 655.43835}
   m_LocalScale: {x: 0.9, y: 0.9, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1433874740}
+  - {fileID: 93124367}
   m_Father: {fileID: 80170065}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1036,7 +1038,7 @@ GameObject:
   - component: {fileID: 93124367}
   - component: {fileID: 93124368}
   m_Layer: 0
-  m_Name: Point Light 2D (1)
+  m_Name: "\uBC14\uAE65 \uC870\uBA85"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1049,12 +1051,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 93124366}
-  m_LocalRotation: {x: -0, y: -0, z: -0.046626385, w: 0.9989124}
-  m_LocalPosition: {x: -0.98, y: -1.708, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 0.6733679, w: 0.7393076}
+  m_LocalPosition: {x: 3.5673382, y: -0.51199967, z: 0}
+  m_LocalScale: {x: 0.5898089, y: 1.7982056, z: 1}
   m_Children: []
-  m_Father: {fileID: 900449528}
-  m_RootOrder: 3
+  m_Father: {fileID: 63960271}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &93124368
 MonoBehaviour:
@@ -2369,7 +2371,7 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 238356498}
+  - {fileID: 238356482}
   selectedCommands: []
   variables:
   - {fileID: 238356481}
@@ -4219,7 +4221,7 @@ GameObject:
   - component: {fileID: 348594715}
   - component: {fileID: 348594716}
   m_Layer: 0
-  m_Name: Point Light 2D
+  m_Name: "\uC804\uCCB4 \uC870\uBA85"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7115,7 +7117,7 @@ MonoBehaviour:
   hiddenTextColor: {r: 1, g: 0.14563107, b: 0, a: 1}
   writeWholeWords: 0
   forceRichText: 1
-  instantComplete: 0
+  instantComplete: 1
   doReadAheadText: 1
 --- !u!114 &638859443
 MonoBehaviour:
@@ -7742,7 +7744,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &709064301
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7780,7 +7782,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -8726,8 +8728,6 @@ Transform:
   m_Children:
   - {fileID: 1870045468}
   - {fileID: 348594715}
-  - {fileID: 1433874740}
-  - {fileID: 93124367}
   m_Father: {fileID: 942577496}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
@@ -10187,7 +10187,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!82 &1156129723
 AudioSource:
   m_ObjectHideFlags: 0
@@ -11472,78 +11472,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1276614649}
   m_CullTransparentMesh: 0
---- !u!1 &1278740360
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1278740363}
-  - component: {fileID: 1278740362}
-  - component: {fileID: 1278740361}
-  m_Layer: 0
-  m_Name: TimeLine
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!95 &1278740361
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1278740360}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!320 &1278740362
-PlayableDirector:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1278740360}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: 03a7dfec60ed51d428cad32959c71ac0, type: 2}
-  m_InitialState: 1
-  m_WrapMode: 2
-  m_DirectorUpdateMode: 1
-  m_InitialTime: 0
-  m_SceneBindings:
-  - key: {fileID: -2482116535567138027, guid: 03a7dfec60ed51d428cad32959c71ac0, type: 2}
-    value: {fileID: 709064304}
-  - key: {fileID: -591072862113774228, guid: 03a7dfec60ed51d428cad32959c71ac0, type: 2}
-    value: {fileID: 1787220224}
-  m_ExposedReferences:
-    m_References: []
---- !u!4 &1278740363
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1278740360}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 666.8458, y: 763.7822, z: -2645.0107}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 12
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1302156349
 GameObject:
   m_ObjectHideFlags: 0
@@ -12606,7 +12534,7 @@ GameObject:
   - component: {fileID: 1433874740}
   - component: {fileID: 1433874741}
   m_Layer: 0
-  m_Name: Point Light 2D
+  m_Name: "\uC640\uC778 \uC870\uBA85"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12619,12 +12547,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1433874739}
-  m_LocalRotation: {x: -0, y: -0, z: -0.046626385, w: 0.9989124}
-  m_LocalPosition: {x: -0, y: -0.165, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 0.6733679, w: 0.7393076}
+  m_LocalPosition: {x: 0.77624243, y: 0.055555593, z: 0}
+  m_LocalScale: {x: 0.5898089, y: 1.7982056, z: 1}
   m_Children: []
-  m_Father: {fileID: 900449528}
-  m_RootOrder: 2
+  m_Father: {fileID: 63960271}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1433874741
 MonoBehaviour:
@@ -14391,7 +14319,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 469, y: 0}
+  m_AnchoredPosition: {x: -556, y: 306}
   m_SizeDelta: {x: 892.1736, y: 107.251465}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1787220226
@@ -14415,18 +14343,18 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 81f18c67d4281b142931e777e7957d34, type: 3}
-    m_FontSize: 60
+    m_FontSize: 80
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 5
-    m_MaxSize: 60
+    m_MinSize: 0
+    m_MaxSize: 120
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "10\uB144\uB9C8\uB2E4 \uC0DD\uAE30\uB294 \uADE0\uC5F4"
+  m_Text: Cafe_ASKo
 --- !u!222 &1787220227
 CanvasRenderer:
   m_ObjectHideFlags: 0
