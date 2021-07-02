@@ -4,10 +4,13 @@ using UnityEngine;
 using TMPro;
 using Fungus;
 using BayatGames.SaveGameFree;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     public Flowchart startFlowChart;
+    public GameObject mainScreen;
+    public GameObject dayPanel;
 
     public GameObject TalkCanV;
     public GameObject CookCanV;
@@ -21,7 +24,9 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        
+        mainScreen.transform.GetChild(0).gameObject.SetActive(true); //배경판넬이 꺼져있을수도 있으니까 무조건 활성화
+        mainScreen.transform.GetChild(1).gameObject.SetActive(false); //Day 판넬 겹치지 않게 비활성화
+        mainScreen.GetComponent<Animator>().Play("StartAni"); //메인화면 애니메이션 재생
     }
 
 
@@ -42,6 +47,30 @@ public class GameManager : MonoBehaviour
 
     }
 
+    public void StartButtonPressed()
+    {
+        mainScreen.GetComponent<Animator>().Play("StartAni Reversed"); //메인화면 사라지는 애니메이션
+        Load(); //세이브 파일 받아오고 flowchart 실행
+    }
+
+    public void Calender_day(string x)
+    {
+        dayPanel.transform.GetChild(0).gameObject.GetComponent<Text>().text = x;
+
+        //캘린더 함수가 flowchart로부터 실행되면 우선 배경판넬 끄고 day판넬을 켠 다음 애니메이션 재생
+
+        mainScreen.transform.GetChild(0).gameObject.SetActive(false);
+        mainScreen.transform.GetChild(1).gameObject.SetActive(true);
+        mainScreen.GetComponent<Animator>().Play("Calender");
+
+
+    }
+    public void Calender_events(string x)
+    {
+        dayPanel.transform.GetChild(1).gameObject.GetComponent<Text>().text = x;
+    }
+
+
     public void IndexAlocation(string index) // 시작할때 스토리 인덱스 분배
     {
         startFlowChart.SetStringVariable("storyIndex", index);
@@ -57,7 +86,9 @@ public class GameManager : MonoBehaviour
     public void Load()
     {
         if (SaveGame.Load<string>("_storyIndex") != null)
-            startFlowChart.SetStringVariable("storyIndex", SaveGame.Load<string>("_storyIndex"));
+            IndexAlocation(SaveGame.Load<string>("_storyIndex"));
+        else
+            IndexAlocation("0");
     }
 
 
