@@ -8697,6 +8697,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   big: {fileID: -7543775869267267756, guid: 974b09e6e35187943b7fc2eec7830666, type: 3}
+  small: {fileID: 21300000, guid: 169d0234266740c468299b2893c60e5f, type: 3}
   Reverse: {fileID: 21300000, guid: a4593b23be0111043b8bbed996de0bae, type: 3}
   N_text: "\uC55E"
   R_text: "\uB4A4"
@@ -10968,8 +10969,9 @@ MonoBehaviour:
     \uD2B9\uBCC4\uD55C \uAC83?\n\n\uD3EC\uC2A4\uD2B8\uC787 \uC1A1\uACF3\uC5D0 \uAF42\uC544\uC11C
     \uC8FC\uBB38 \uC644\uB8CC?\n\n\uCE90\uB9AD\uD130\uC5D0 \uB9C8\uC6B0\uC2A4 \uAC00\uC838\uB300\uBA74
     \uB300\uD654\uD45C\uC2DC\n\n\uB9E4\uC77C \uC624\uB294 \uD3B8\uC9C0\n\n\uBC84\uADF8\n\n\uD3EC\uC2A4\uD2B8\uC787\uC774
-    2\uBC88\uC9F8 \uC2E4\uD589\uB54C\n1. \uD06C\uAE30 \uD07C\n2. \uD074\uB9AD\uD574\uC57C
-    \uD14D\uC2A4\uD2B8 \uC5C5\uB370\uC774\uD2B8\uB40C"
+    2\uBC88\uC9F8 \uC2E4\uD589\uB54C\n1. \uCEF7! \uD06C\uAE30 \uD07C\n2. \uD074\uB9AD\uD574\uC57C
+    \uD14D\uC2A4\uD2B8 \uC5C5\uB370\uC774\uD2B8\uB40C\n3.\uC694\uB9AC \uD654\uBA74
+    \uC804\uD658\uC2DC \uAE00\uC790 \uBC1D\uC74C"
 --- !u!222 &1147391892
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -15391,6 +15393,7 @@ MonoBehaviour:
   GM: {fileID: 1312897607}
   jsonfile: {fileID: 874194928}
   posit: {fileID: 713217109}
+  posit_UIDrag: {fileID: 713217105}
   coin: {fileID: 1102989220}
   special: {fileID: 253889409}
   characterClick: {fileID: 75964348}

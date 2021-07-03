@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ForPosit : MonoBehaviour
 {
-    public Sprite big, Reverse;
+    public Sprite big, small, Reverse;
     [TextArea]
     public string N_text, R_text;
 

@@ -9,6 +9,7 @@ public class Ingredients : MonoBehaviour
     public GameManager GM;
     public JsonReader jsonfile;
     public ForPosit posit;
+    public UIDrag posit_UIDrag;
     public CoinAdmin coin;
     public ForSpecialThing special;
     public CharacterClick characterClick;
@@ -225,6 +226,10 @@ public class Ingredients : MonoBehaviour
         //포스트잇 변경
         posit.N_text = jsonfile.myIndexList.cookIndex[index].firstPage;
         posit.R_text = jsonfile.myIndexList.cookIndex[index].secondPage;
+
+        //포스트잇 사이즈 변경
+        posit_UIDrag.ChangePosit_small();
+
 
         //돈 변경
         //Debug.Log("예상 골드: " + jsonfile.myIndexList.cookIndex[index].gold);

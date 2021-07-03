@@ -128,8 +128,6 @@ public class UIDrag : MonoBehaviour
         {
             startPos = transform.position; //내려놨을때, 책상이면 초기위치 업데이트
         }
-
-
     }
 
     public void FixBugwhenCanelButton()
@@ -141,37 +139,35 @@ public class UIDrag : MonoBehaviour
     {
          if (collision.gameObject.tag == "SmallTab")
         {
-            if ((int)kind == 3)
-            {
-
-            }
-
             //포스트잇일때 변화
             if ((int)kind == 1)
             {
-                gameObject.GetComponent<Image>().sprite = forPosit.big; //큰 스프라이트로 변경
-                gameObject.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, forPosit.BigSize);
-                gameObject.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, forPosit.BigSize);
-                gameObject.GetComponent<BoxCollider2D>().size = new Vector2(250, 250);
-                gameObject.transform.GetChild(0).gameObject.SetActive(true);
-                gameObject.transform.GetChild(0).gameObject.GetComponent<Text>().text = forPosit.N_text;
-                forPosit.reverseButton.SetActive(true);
+                ChangePosit_big();
             }
-                
 
-            //----------------------------------------------------//
-            //코인 제어 todo:클릭해서 그냥 넣기
-            //----------------------------------------------------//
-            //if ((int)kind == 0)
-            //{
-            //    GM.CoinEnter(howCoin);
-            //    Debug.Log("성공");
-            //    gameObject.SetActive(false);
-            //}
         }
-
-
         if (collision.gameObject.tag == "cursorChecker")
             Cursor.SetCursor(movableManager.normalCursor, Vector2.zero, CursorMode.ForceSoftware);
+    }
+
+    public void ChangePosit_big()
+    {
+        gameObject.GetComponent<Image>().sprite = forPosit.big; //큰 스프라이트로 변경
+        gameObject.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, forPosit.BigSize);
+        gameObject.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, forPosit.BigSize);
+        gameObject.GetComponent<BoxCollider2D>().size = new Vector2(250, 250);
+        gameObject.transform.GetChild(0).gameObject.SetActive(true);
+        forPosit.reverseButton.SetActive(true);
+    }
+
+    public void ChangePosit_small()
+    {
+        gameObject.GetComponent<Image>().sprite = forPosit.small;
+        gameObject.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 75);
+        gameObject.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 75);
+        gameObject.GetComponent<BoxCollider2D>().size = new Vector2(75, 75);
+        gameObject.transform.GetChild(0).gameObject.SetActive(false);
+        gameObject.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 0);
+        forPosit.reverseButton.SetActive(false);
     }
 }
