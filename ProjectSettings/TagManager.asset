@@ -52,3 +52,6 @@ TagManager:
   - name: sub
     uniqueID: 218032543
     locked: 0
+  - name: cooking
+    uniqueID: 679060067
+    locked: 0

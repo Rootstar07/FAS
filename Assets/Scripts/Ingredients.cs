@@ -6,12 +6,15 @@ using UnityEngine.UI;
 
 public class Ingredients : MonoBehaviour
 {
+    public GameManager GM;
+    public string cookCode;
+
     public GameObject[] ingredients;
     public int[] ingredNums;
     public TMP_Text targetText;
     public GameObject SugarObj;
     public Sprite[] Sugar;
-
+    
     public GameObject smellObj;
     public Sprite[] smell;
     public string[] smellText;
@@ -38,6 +41,7 @@ public class Ingredients : MonoBehaviour
     [TextArea]
     public string[] ingredientData;
 
+
     private void Start()
     {
         noTouchPanel.SetActive(false);
@@ -50,10 +54,12 @@ public class Ingredients : MonoBehaviour
         if ((ingredNums[0] != 0 || ingredNums[1] != 0 || ingredNums[2] != 0) && (ingredNums[3] != 0 || ingredNums[4] != 0 || ingredNums[5] != 0))
         {
             makeButton.SetActive(true);
-        }else
+        }
+        else
         {
             makeButton.SetActive(false);
         }
+
     }
 
 
@@ -124,13 +130,11 @@ public class Ingredients : MonoBehaviour
         specialText.text = specialList[x];
         y.SetActive(false);
         specialCancelButton.SetActive(true);
-
-        //취소기능
     }
 
     public void CanelSpecial()
     {
-        temp_special.SetActive(true);
+        temp_special.SetActive(true); //이전에 넣은 재료 생성
         specialCancelButton.SetActive(false);
 
         nowSpecialCode = 0;
@@ -158,7 +162,8 @@ public class Ingredients : MonoBehaviour
 
         code = code + _TD.ToString() + sugarcode.ToString() + smellcode.ToString() + nowSpecialCode.ToString();
 
-        Debug.Log(code);
+
+        cookCode = code;
 
         CompleteAnimator.SetBool("PanelOff", false);
         CompleteAnimator.SetBool("PanelOn", true);
@@ -167,6 +172,7 @@ public class Ingredients : MonoBehaviour
 
     public void MakeCanelButtonPressed()
     {
+        //취소 버튼 누를때
         CompleteAnimator.SetBool("PanelOff", true);
         CompleteAnimator.SetBool("PanelOn", false);
     }
@@ -174,10 +180,42 @@ public class Ingredients : MonoBehaviour
     public void MakeConfirmButtonPressed()
     {
 
+        ResetCook();
+
+        //최종완성 승인
+        GM.CookCodeCome(cookCode);
+        Debug.Log(cookCode);
     }
 
+    public void ResetCook()
+    {
+        //설탕 초기화
+        sugarcode = 0;
+        SugarObj.GetComponent<Image>().sprite = Sugar[sugarcode];
 
-    //TOdo
-    //제작완성
-    //버튼 누를때 애니메이션
+        //향 초기화
+        smellcode = 0;
+        smellObj.GetComponent<Image>().sprite = smell[smellcode];
+        targetSmellText.text = smellText[smellcode].ToString();
+
+        //재료, 부재료 초기화
+        for (int i = 0; i < 6; i++)
+        {
+            ingredients[i].transform.GetChild(0).gameObject.SetActive(false);
+            ingredients[i].transform.GetChild(1).gameObject.SetActive(false);
+            ingredients[i].transform.GetChild(2).gameObject.SetActive(false);
+            ingredNums[i] = 0;
+        }
+
+        //온도 초기화
+        TDValue = 0;
+
+        //스페셜 재료 초기화
+        temp_special = null;
+        specialCancelButton.SetActive(false);
+
+        nowSpecialCode = 0;
+        specialText.text = specialList[0];
+    }
+
 }

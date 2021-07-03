@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject TalkCanV;
     public GameObject CookCanV;
+    bool CookOpen = false;
 
     public GameObject sayDialog;
     //public Animator barAnimator;
@@ -22,11 +23,14 @@ public class GameManager : MonoBehaviour
     public TMP_Text goldText;
     public GameObject wallet;
 
+    public string cookCode;
+
     private void Start()
     {
         mainScreen.transform.GetChild(0).gameObject.SetActive(true); //배경판넬이 꺼져있을수도 있으니까 무조건 활성화
         mainScreen.transform.GetChild(1).gameObject.SetActive(false); //Day 판넬 겹치지 않게 비활성화
         mainScreen.GetComponent<Animator>().Play("StartAni"); //메인화면 애니메이션 재생
+        CookCanV.SetActive(false);
     }
 
 
@@ -97,22 +101,41 @@ public class GameManager : MonoBehaviour
 
     public void TalkAndCook()
     {
-        //대화 전환 함수
+
+        CookCanV.GetComponent<Animator>().enabled = true;
+        CookCanV.SetActive(true);
+        CookCanV.GetComponent<Animator>().Play("FadeOut_Panel");
 
         //조리탭 열기
-        if (TalkCanV.activeSelf == true)
-        {
+        //혹시나 화면 전환 패널 외에 열여있을수도 있으니까 예외처리
 
-            TalkCanV.SetActive(false);
-            CookCanV.SetActive(true);
-        }
-        //대화 탭 열기
-        else
-        {
-            TalkCanV.SetActive(true);
-            CookCanV.SetActive(false);
-        }
+        //CookCanV.transform.GetChild(0).gameObject.SetActive(false); //오른쪽
+        //CookCanV.transform.GetChild(1).gameObject.SetActive(false); //왼쪽
+        //CookCanV.transform.GetChild(2).gameObject.SetActive(false); //완성 Button
+        //완성영역 내부의 터치방지 판넬
+        //CookCanV.transform.GetChild(3).gameObject.SetActive(true);
+        //CookCanV.transform.GetChild(3).gameObject.transform.GetChild(0).gameObject.SetActive(false); 
+        //CookCanV.transform.GetChild(4).gameObject.SetActive(false); //경계
 
+        //CookCanV.transform.GetChild(2).gameObject.SetActive(false); //완성 Button
+        //CookCanV.transform.GetChild(3).gameObject.SetActive(true); //완성 영역
+        //CookCanV.transform.GetChild(3).gameObject.transform.GetChild(0).gameObject.SetActive(false);  // 터치방지 패널
+    }
+
+    public void CookCodeCome(string code)
+    {
+        cookCode = code;
+        CookCanV.GetComponent<Animator>().enabled = true;
+        CookCanV.GetComponent<Animator>().Play("CloseCook");
+
+        IndexAlocation("10"); //일단 임시로 10으로 보냄
+    }
+
+
+    public void CloseTalk()
+    {
+        TalkCanV.SetActive(false);
+        CookCanV.SetActive(true);
     }
 
     public void CoinEnter(ForCoin x)
