@@ -1,0 +1,29 @@
+{
+		"cookIndex" :[
+		{
+			"index": 0,
+			"firstPage": "앞장입니다.",
+			"secondPage": "뒷장이다.",
+			"gold": 3,
+			"specialcode" : 1,
+			"characterCode" : 100
+		},
+		{
+			"index": 1,
+			"firstPage": "앞장",
+			"secondPage": "뒷장",
+			"gold": 1,
+			"specialcode" : 0,
+			"characterCode" : 101
+		},
+				{
+			"index": 2,
+			"firstPage": "앞장이에요",
+			"secondPage": "뒷장이에요",
+			"gold": 5,
+			"specialcode" : 0,
+			"characterCode" : 101
+		}
+	]
+
+}

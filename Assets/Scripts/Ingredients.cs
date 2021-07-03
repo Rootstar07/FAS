@@ -7,6 +7,14 @@ using UnityEngine.UI;
 public class Ingredients : MonoBehaviour
 {
     public GameManager GM;
+    public JsonReader jsonfile;
+    public ForPosit posit;
+    public CoinAdmin coin;
+    public ForSpecialThing special;
+    public CharacterClick characterClick;
+
+    public GameObject movableObject;
+
     public string cookCode;
 
     public GameObject[] ingredients;
@@ -52,14 +60,9 @@ public class Ingredients : MonoBehaviour
         TDValue = TD.value;
 
         if ((ingredNums[0] != 0 || ingredNums[1] != 0 || ingredNums[2] != 0) && (ingredNums[3] != 0 || ingredNums[4] != 0 || ingredNums[5] != 0))
-        {
             makeButton.SetActive(true);
-        }
         else
-        {
             makeButton.SetActive(false);
-        }
-
     }
 
 
@@ -83,9 +86,6 @@ public class Ingredients : MonoBehaviour
             ingredients[code].transform.GetChild(2).gameObject.SetActive(false);
             ingredNums[code] = 0;
         }
-
-
-
         //ingredNums[code]++;
     }
 
@@ -179,7 +179,6 @@ public class Ingredients : MonoBehaviour
 
     public void MakeConfirmButtonPressed()
     {
-
         ResetCook();
 
         //최종완성 승인
@@ -216,6 +215,26 @@ public class Ingredients : MonoBehaviour
 
         nowSpecialCode = 0;
         specialText.text = specialList[0];
+
+        characterClick.count = 0; //캐릭터 클릭 수 초기화
+    }
+
+    public void ChangeIngredients(int index)
+    {
+        Debug.Log("현재 인덱스: " + index);
+        //포스트잇 변경
+        posit.N_text = jsonfile.myIndexList.cookIndex[index].firstPage;
+        posit.R_text = jsonfile.myIndexList.cookIndex[index].secondPage;
+
+        //돈 변경
+        //Debug.Log("예상 골드: " + jsonfile.myIndexList.cookIndex[index].gold);
+        coin.CoinSet(jsonfile.myIndexList.cookIndex[index].gold);
+
+        //특수재료 변경
+        special.ChangeSpecialObject(index);
+
+        //생성하기
+        movableObject.SetActive(true);
     }
 
 }

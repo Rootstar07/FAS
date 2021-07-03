@@ -7,7 +7,10 @@ public class ForPosit : MonoBehaviour
     public Sprite big, Reverse;
     [TextArea]
     public string N_text, R_text;
+
     public int BigSize;
     public bool reversed = false;
     public GameObject reverseButton;
+
+
 }

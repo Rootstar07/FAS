@@ -8,7 +8,7 @@ public class ForBook : MonoBehaviour
     public Animator animator;
     public Button bookButton;
     public ForBookButton forBookButton;
-    bool isUp = false;
+    //bool isUp = false;
 
     public void BookClick()
     {
@@ -17,13 +17,13 @@ public class ForBook : MonoBehaviour
 
         animator.SetBool("BookUp", true);
         bookButton.interactable = false;
-        isUp = true;
+        //isUp = true;
     }
 
     public void CloseBookButtonClick()
     {
         animator.SetBool("BookUp", false);
-        isUp = false;
+        //isUp = false;
         bookButton.interactable = true;
         forBookButton.bigButtonClick(0);
     }

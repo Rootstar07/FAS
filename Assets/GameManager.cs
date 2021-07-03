@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public Flowchart startFlowChart;
     public GameObject mainScreen;
     public GameObject dayPanel;
+    public Ingredients ingredients;
 
     public GameObject TalkCanV;
     public GameObject CookCanV;
@@ -61,6 +62,8 @@ public class GameManager : MonoBehaviour
 
     public void Calender(string txt)
     {
+        //Day 출력 합수
+
         //txt를 ,을 기준으로 쪼개서 사용
         //다음으로 넘어갈 인덱스, 오늘 날짜, 오늘 일정
         string[] _txt = txt.Split(',');
@@ -101,14 +104,10 @@ public class GameManager : MonoBehaviour
 
     public void TalkAndCook()
     {
-
-        CookCanV.GetComponent<Animator>().enabled = true;
-        CookCanV.SetActive(true);
-        CookCanV.GetComponent<Animator>().Play("FadeOut_Panel");
-
-        //조리탭 열기
-        //혹시나 화면 전환 패널 외에 열여있을수도 있으니까 예외처리
-
+        CookCanV.SetActive(true); //캔버스 활성화
+        CookCanV.GetComponent<Animator>().enabled = true; //애니메이터 꺼져있을수도 있으니 예외처리하고
+        CookCanV.GetComponent<Animator>().Play("FadeOut_Panel"); //전환 애니메이션
+ 
         //CookCanV.transform.GetChild(0).gameObject.SetActive(false); //오른쪽
         //CookCanV.transform.GetChild(1).gameObject.SetActive(false); //왼쪽
         //CookCanV.transform.GetChild(2).gameObject.SetActive(false); //완성 Button
@@ -122,13 +121,21 @@ public class GameManager : MonoBehaviour
         //CookCanV.transform.GetChild(3).gameObject.transform.GetChild(0).gameObject.SetActive(false);  // 터치방지 패널
     }
 
-    public void CookCodeCome(string code)
+    public void ChageIngredients()
+    //해당 스토리에 맞는 포스트잇, 보상, 특별재료로 변경
+    {
+        int storyIndex = int.Parse(startFlowChart.GetStringVariable("storyIndex"));
+        ingredients.ChangeIngredients(storyIndex);
+    }
+
+    public void CookCodeCome(string code) //요리 확정됐을때
     {
         cookCode = code;
         CookCanV.GetComponent<Animator>().enabled = true;
         CookCanV.GetComponent<Animator>().Play("CloseCook");
 
-        IndexAlocation("10"); //일단 임시로 10으로 보냄
+        //다음 대화 진행
+        IndexAlocation("2"); //일단 임시로 n으로 보냄
     }
 
 
@@ -146,3 +153,13 @@ public class GameManager : MonoBehaviour
 
     }
 }
+
+
+//TODO
+/*
+ *  세이브 로드 원하는 인덱스에 맞춰서 매끄럽게
+ *  세이브 로드 ui구현
+ *  인덱스에 따른 메모 및 스페셜 재료
+ * 
+ * 
+ */

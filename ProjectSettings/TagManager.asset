@@ -12,6 +12,7 @@ TagManager:
   - plusHere
   - cursorChecker
   - CoinChecker
+  - Character
   layers:
   - Default
   - TransparentFX
