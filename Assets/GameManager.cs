@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     public GameObject CookCanV;
 
     public GameObject sayDialog;
-    public Animator barAnimator;
+    //public Animator barAnimator;
 
     public float Gold = 0;
     public TMP_Text goldText;
@@ -32,7 +32,8 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-
+        //이건 뭔 함수일까요
+        /*
         if (TalkCanV.activeSelf == true)
         {
             if (sayDialog.activeSelf == true)
@@ -44,6 +45,7 @@ public class GameManager : MonoBehaviour
                 barAnimator.SetBool("Say", false);
             }
         }
+        */
 
     }
 
@@ -53,27 +55,28 @@ public class GameManager : MonoBehaviour
         Load(); //세이브 파일 받아오고 flowchart 실행
     }
 
-    public void Calender_day(string x)
+    public void Calender(string txt)
     {
-        dayPanel.transform.GetChild(0).gameObject.GetComponent<Text>().text = x;
+        //txt를 ,을 기준으로 쪼개서 사용
+        //다음으로 넘어갈 인덱스, 오늘 날짜, 오늘 일정
+        string[] _txt = txt.Split(',');
+
+        dayPanel.transform.GetChild(0).gameObject.GetComponent<Text>().text = _txt[1]; //Day text
+        dayPanel.transform.GetChild(1).gameObject.GetComponent<Text>().text = _txt[2]; // 일정 text
 
         //캘린더 함수가 flowchart로부터 실행되면 우선 배경판넬 끄고 day판넬을 켠 다음 애니메이션 재생
-
         mainScreen.transform.GetChild(0).gameObject.SetActive(false);
         mainScreen.transform.GetChild(1).gameObject.SetActive(true);
         mainScreen.GetComponent<Animator>().Play("Calender");
 
-
-    }
-    public void Calender_events(string x)
-    {
-        dayPanel.transform.GetChild(1).gameObject.GetComponent<Text>().text = x;
     }
 
-
-    public void IndexAlocation(string index) // 시작할때 스토리 인덱스 분배
+    public void IndexAlocation(string index)
     {
+        //인덱스를 받아서 스토리인덱스를 변경
         startFlowChart.SetStringVariable("storyIndex", index);
+
+        //allocate 메시지를 보내서 실행
         startFlowChart.SendFungusMessage("allocated");
     }
 
@@ -92,14 +95,18 @@ public class GameManager : MonoBehaviour
     }
 
 
-
     public void TalkAndCook()
     {
+        //대화 전환 함수
+
+        //조리탭 열기
         if (TalkCanV.activeSelf == true)
         {
+
             TalkCanV.SetActive(false);
             CookCanV.SetActive(true);
         }
+        //대화 탭 열기
         else
         {
             TalkCanV.SetActive(true);
