@@ -5,6 +5,7 @@ using UnityEngine;
 public class JsonReader : MonoBehaviour
 {
     public TextAsset textJson;
+    public TextAsset ingredientsTextJson;
 
     [System.Serializable]
     public class Index
@@ -17,23 +18,33 @@ public class JsonReader : MonoBehaviour
     }
 
     [System.Serializable]
+    public class IngredientText
+    {
+        public int index;
+        public string textdata;
+        public string scentdata;
+    }
+
+    [System.Serializable]
     public class IndexList
     {
         public Index[] cookIndex;
     }
 
+    [System.Serializable]
+    public class IngredientTestList
+    {
+        public IngredientText[] IngredientData;
+    }
+
     public IndexList myIndexList = new IndexList();
+    public IngredientTestList myingredientList = new IngredientTestList();
 
-
-    // Start is called before the first frame update
     void Start()
     {
         myIndexList = JsonUtility.FromJson<IndexList>(textJson.text);
+        myingredientList = JsonUtility.FromJson<IngredientTestList>(ingredientsTextJson.text);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 }

@@ -990,8 +990,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000010492, y: 0.0000076294}
-  m_SizeDelta: {x: 61.910904, y: 66.86162}
+  m_AnchoredPosition: {x: -26, y: 45.798}
+  m_SizeDelta: {x: 90.347, y: 91.5957}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &75964345
 MonoBehaviour:
@@ -1005,7 +1005,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
@@ -1155,11 +1155,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC2AC\uB77C\uC784\n\n\uB9CC\uC9C0\uAE30\uB9CC \uD574\uB3C4 \uD589\uBCF5\uAC10\uC744
-    \uC8FC\uB294 \uCE5C\uAD6C"
+  m_text: "\uB204\uAD6C\uB098 \uC88B\uC544\uD558\uB294 \uBBFC\uD2B8"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c44b06ba4b31d104fb9306002606c292, type: 2}
-  m_sharedMaterial: {fileID: 262886840924769282, guid: c44b06ba4b31d104fb9306002606c292,
+  m_fontAsset: {fileID: 11400000, guid: 60e7c39d0fd88e142986aff26174a055, type: 2}
+  m_sharedMaterial: {fileID: -3387719782176997586, guid: 60e7c39d0fd88e142986aff26174a055,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -2754,7 +2753,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &238356472
 MonoBehaviour:
@@ -9052,8 +9051,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textJson: {fileID: 4900000, guid: 07f87119af4db5a4b98c196e4b537070, type: 3}
+  ingredientsTextJson: {fileID: 4900000, guid: 4928e51b336342147aaf6526fac1910d, type: 3}
   myIndexList:
     cookIndex: []
+  myingredientList:
+    IngredientData: []
 --- !u!4 &874194929
 Transform:
   m_ObjectHideFlags: 0
@@ -9245,8 +9247,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 900449527}
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 141.7, y: 0.35639998, z: -9719.983}
-  m_LocalScale: {x: 56.28426, y: 204.0389, z: 108}
+  m_LocalPosition: {x: 126.5, y: 0.35639998, z: -9719.983}
+  m_LocalScale: {x: 56.28426, y: 201.21735, z: 108}
   m_Children: []
   m_Father: {fileID: 101360778}
   m_RootOrder: 1
@@ -10815,7 +10817,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1118254758
 GameObject:
@@ -10867,7 +10869,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -10968,10 +10970,8 @@ MonoBehaviour:
     \uC911\uAC04\uC5D0 \uBE7C\uBA74 \uBE84\uC218\uC788\uB3C4\uB85D\n\uD0DC\uC6B0\uBA74
     \uD2B9\uBCC4\uD55C \uAC83?\n\n\uD3EC\uC2A4\uD2B8\uC787 \uC1A1\uACF3\uC5D0 \uAF42\uC544\uC11C
     \uC8FC\uBB38 \uC644\uB8CC?\n\n\uCE90\uB9AD\uD130\uC5D0 \uB9C8\uC6B0\uC2A4 \uAC00\uC838\uB300\uBA74
-    \uB300\uD654\uD45C\uC2DC\n\n\uB9E4\uC77C \uC624\uB294 \uD3B8\uC9C0\n\n\uBC84\uADF8\n\n\uD3EC\uC2A4\uD2B8\uC787\uC774
-    2\uBC88\uC9F8 \uC2E4\uD589\uB54C\n1. \uCEF7! \uD06C\uAE30 \uD07C\n2. \uD074\uB9AD\uD574\uC57C
-    \uD14D\uC2A4\uD2B8 \uC5C5\uB370\uC774\uD2B8\uB40C\n3.\uC694\uB9AC \uD654\uBA74
-    \uC804\uD658\uC2DC \uAE00\uC790 \uBC1D\uC74C"
+    \uB300\uD654\uD45C\uC2DC\n\n\uB9E4\uC77C \uC624\uB294 \uD3B8\uC9C0\n\n**\uBC84\uADF8**\n\n\uC694\uB9AC
+    \uD654\uBA74 \uC804\uD658\uC2DC \uAE00\uC790 \uBC1D\uC74C"
 --- !u!222 &1147391892
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -12040,7 +12040,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -5.1000004}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1249990434
@@ -14127,7 +14127,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -14304,7 +14304,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 223.5}
+  m_AnchoredPosition: {x: 132.2, y: 113.3}
   m_SizeDelta: {x: 170.13129, y: 49.16652}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1557513654
@@ -14835,14 +14835,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.3529412}
+  m_Material: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.78431374}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -15393,6 +15393,7 @@ MonoBehaviour:
   GM: {fileID: 1312897607}
   jsonfile: {fileID: 874194928}
   posit: {fileID: 713217109}
+  positFirst: {fileID: 1476976304}
   posit_UIDrag: {fileID: 713217105}
   coin: {fileID: 1102989220}
   special: {fileID: 253889409}
@@ -15440,13 +15441,6 @@ MonoBehaviour:
   makeButton: {fileID: 146466732}
   noTouchPanel: {fileID: 1185788570}
   CompleteAnimator: {fileID: 791633584}
-  ingredientData:
-  - 0
-  - 1
-  - 2
-  - 3
-  - 4
-  - 5
 --- !u!1 &1787220224
 GameObject:
   m_ObjectHideFlags: 0
@@ -15517,7 +15511,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: For Violet.
+  m_Text: Title
 --- !u!222 &1787220227
 CanvasRenderer:
   m_ObjectHideFlags: 0

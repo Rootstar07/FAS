@@ -9,6 +9,7 @@ public class Ingredients : MonoBehaviour
     public GameManager GM;
     public JsonReader jsonfile;
     public ForPosit posit;
+    public Text positFirst;
     public UIDrag posit_UIDrag;
     public CoinAdmin coin;
     public ForSpecialThing special;
@@ -47,9 +48,6 @@ public class Ingredients : MonoBehaviour
 
     GameObject temp_special;
 
-    [TextArea]
-    public string[] ingredientData;
-
 
     private void Start()
     {
@@ -69,8 +67,7 @@ public class Ingredients : MonoBehaviour
 
     public void Click(int code)
     {
-
-        targetText.text = ingredientData[code];
+        targetText.text = jsonfile.myingredientList.IngredientData[code].textdata;
 
         if (ingredNums[code] < 3)
         {
@@ -107,6 +104,10 @@ public class Ingredients : MonoBehaviour
 
     public void SmellClick()
     {
+        //향 첨가
+        //Todo 설명 넣을것 by json
+        
+
         if (smellcode < 3)
         {
             smellcode++;
@@ -119,6 +120,8 @@ public class Ingredients : MonoBehaviour
             smellObj.GetComponent<Image>().sprite = smell[smellcode];
             targetSmellText.text = smellText[smellcode].ToString();
         }
+
+        targetText.text = jsonfile.myingredientList.IngredientData[smellcode].scentdata;
 
     }
 
@@ -226,6 +229,9 @@ public class Ingredients : MonoBehaviour
         //포스트잇 변경
         posit.N_text = jsonfile.myIndexList.cookIndex[index].firstPage;
         posit.R_text = jsonfile.myIndexList.cookIndex[index].secondPage;
+
+        //위의 방식으로는 버튼을 눌러야 변경되므로 최초 한번 변경
+        positFirst.text = jsonfile.myIndexList.cookIndex[index].firstPage;
 
         //포스트잇 사이즈 변경
         posit_UIDrag.ChangePosit_small();

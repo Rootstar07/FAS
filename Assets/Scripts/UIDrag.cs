@@ -69,6 +69,7 @@ public class UIDrag : MonoBehaviour
 
     public void ReversePostit()
     {
+        //버튼을 눌러야 텍스트 업데이트
         if (forPosit.reversed == false)
         {
             gameObject.GetComponent<Image>().sprite = forPosit.Reverse;
@@ -84,13 +85,13 @@ public class UIDrag : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "SmallTab")
+        /*if (collision.gameObject.tag == "SmallTab")
         {
-            //gameObject.GetComponent<Image>().sprite = small;
-            //gameObject.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, smallSize);
-            //gameObject.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, smallSize);
-            //gameObject.transform.GetChild(0).gameObject.SetActive(false);
-        }
+            gameObject.GetComponent<Image>().sprite = small;
+            gameObject.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, smallSize);
+            gameObject.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, smallSize);
+            gameObject.transform.GetChild(0).gameObject.SetActive(false);
+        }*/
     }
 
     private void OnTriggerStay2D(Collider2D other)

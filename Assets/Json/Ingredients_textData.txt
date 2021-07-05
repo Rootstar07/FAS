@@ -1,0 +1,35 @@
+{
+		"IngredientData" :[
+		{
+			"index": 0,
+			"textdata": "test 1",
+			"scentdata": "아무것도 넣지 않는다."
+		},
+		{
+			"index": 1,
+			"textdata": "test 2",
+			"scentdata":"부드러운 생크림"
+		},
+		{
+			"index": 2,
+			"textdata": "test 3",
+			"scentdata": "누구나 사랑하는 민트"
+		},
+		{
+			"index": 3,
+			"textdata": "test 4",
+			"scentdata": "짜릿한 조금의 화약"
+		},
+		{
+			"index": 4,
+			"textdata": "test 5",
+			"scentdata": ""
+		},
+		{
+			"index": 5,
+			"textdata": "test 6",
+			"scentdata": ""
+		}
+	]
+
+}
