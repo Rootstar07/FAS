@@ -164,9 +164,9 @@ public class UIDrag : MonoBehaviour
     public void ChangePosit_small()
     {
         gameObject.GetComponent<Image>().sprite = forPosit.small;
-        gameObject.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 75);
-        gameObject.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 75);
-        gameObject.GetComponent<BoxCollider2D>().size = new Vector2(75, 75);
+        gameObject.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 100);
+        gameObject.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 60);
+        gameObject.GetComponent<BoxCollider2D>().size = new Vector2(100, 60);
         gameObject.transform.GetChild(0).gameObject.SetActive(false);
         gameObject.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 0);
         forPosit.reverseButton.SetActive(false);

@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public GameObject mainScreen;
     public GameObject dayPanel;
     public Ingredients ingredients;
+    public GameObject movableObject;
 
     public GameObject TalkCanV;
     public GameObject CookCanV;
@@ -32,6 +33,7 @@ public class GameManager : MonoBehaviour
         mainScreen.transform.GetChild(1).gameObject.SetActive(false); //Day 판넬 겹치지 않게 비활성화
         mainScreen.GetComponent<Animator>().Play("StartAni"); //메인화면 애니메이션 재생
         CookCanV.SetActive(false);
+        movableObject.SetActive(false); //무버블 오브젝트(포스트잇, 돈, 스페셜 오브젝트) 예외처리
     }
 
 

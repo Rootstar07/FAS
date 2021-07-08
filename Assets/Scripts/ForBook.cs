@@ -15,14 +15,14 @@ public class ForBook : MonoBehaviour
         //animator.SetBool("BookUp", !isUp);      
         //isUp = !isUp;
 
-        animator.SetBool("BookUp", true);
+        animator.SetBool("BookOn", true);
         bookButton.interactable = false;
         //isUp = true;
     }
 
     public void CloseBookButtonClick()
     {
-        animator.SetBool("BookUp", false);
+        animator.SetBool("BookOn", false);
         //isUp = false;
         bookButton.interactable = true;
         forBookButton.bigButtonClick(0);

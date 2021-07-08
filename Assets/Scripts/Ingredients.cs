@@ -169,6 +169,8 @@ public class Ingredients : MonoBehaviour
 
         cookCode = code;
 
+        GM.movableObject.SetActive(false); //무버블 오브젝트 비활성화
+
         CompleteAnimator.SetBool("PanelOff", false);
         CompleteAnimator.SetBool("PanelOn", true);
 
